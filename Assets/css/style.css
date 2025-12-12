@@ -1,0 +1,642 @@
+:root {
+  --brand-red: #E30613;
+  --brand-yellow: #FFD700;
+  --brand-navy: #001B60;
+  --bg: #F7F8FA;
+  --muted: #6B7280;
+  --max-width: 1180px;
+  --gap: 1rem;
+  --radius: 10px;
+  --container-pad: 1rem;
+  --txt-dark: #0b1220;
+  --ff-sans: "Poppins", Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+}
+
+:root{
+  --brand-red: #E30613;
+  --brand-yellow: #FFD700;     /* yellow accent from logo */
+  --brand-navy: #001B60;       /* deep navy */
+  --bg: #F7F8FA;
+  --muted: #6B7280;
+  --max-width: 1180px;
+  --gap: 1rem;
+  --radius: 10px;
+  --container-pad: 1rem;
+  --txt-dark: #0b1220;
+  --ff-sans: "Poppins", Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+}
+
+/* Global reset / base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:var(--ff-sans);background:var(--bg);color:var(--txt-dark);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+
+/* Container */
+.container{
+  width:100%;
+  max-width:var(--max-width);
+  padding:0 var(--container-pad);
+  margin:0 auto;
+}
+/* === Top Bar === */
+.top-bar {
+  background: var(--brand-navy);
+  color: #fff;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.3rem 0;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--brand-yellow);
+}
+.company-name {
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* === Logo + Header === */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 48px;
+  width: auto;
+}
+.logo-text {
+  white-space: nowrap;   /* Keeps text on one line */
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--brand-navy);
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--brand-navy);
+  letter-spacing: -0.5px;
+  position: relative;
+  
+}
+
+.logo-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 35%;
+  height: 3px;
+  background: var(--brand-red);
+  border-radius: 4px;
+}
+
+/* Make it responsive */
+@media (max-width: 650px) {
+  .logo-text {
+    display: none;
+  }
+}
+
+/* Header (mobile-first) */
+.header{
+  position:sticky;
+  top:0;
+  z-index:60;
+  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95));
+  border-bottom:1px solid #e6e9ee;
+  backdrop-filter:saturate(120%) blur(6px);
+}
+
+.header .header-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:0.75rem;
+  padding:0.65rem 0;
+}
+
+/* Logo */
+.logo img{height:48px; width:auto; display:block}
+
+/* Mobile nav toggle */
+.nav-toggle{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  padding:0.25rem;
+}
+.hamburger{
+  width:28px;height:18px;display:block;position:relative;
+}
+.hamburger span{
+  position:absolute;left:0;right:0;height:2px;background:var(--brand-navy);display:block;border-radius:2px;
+}
+.hamburger span:nth-child(1){top:0}
+.hamburger span:nth-child(2){top:8px}
+.hamburger span:nth-child(3){bottom:0}
+
+/* Main nav (collapsed by default) */
+.nav-main{
+  display:none;
+  width:100%;
+  padding:0.75rem 0 1rem;
+  background:#fff;
+  border-top:1px solid #f1f4f8;
+}
+.nav-main ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.35rem}
+.nav-main a{display:inline-block;padding:0.6rem 0.5rem;color:var(--brand-navy);text-decoration:none;font-weight:600;border-radius:6px}
+.nav-main a:hover{background:rgba(227,6,19,0.06);color:var(--brand-red)}
+
+/* Desktop nav */
+@media(min-width: 880px){
+  .nav-toggle{display:none}
+  .nav-main{display:flex;align-items:center;justify-content:flex-end;background:transparent;padding:0;border-top:0}
+  .nav-main ul{flex-direction:row;gap:1rem}
+  .logo img{height:56px}
+  .header .container{display:flex;align-items:center;justify-content:space-between;padding:0.8rem 0}
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  padding:3.25rem 0 3.25rem;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  min-height:420px;
+}
+.hero::after{
+  /* subtle dark overlay for text readability */
+  content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));pointer-events:none
+}
+.hero .container{position:relative;z-index:2}
+.hero .hero-inner{display:flex;flex-direction:column;gap:1rem;max-width:760px}
+.hero h1{margin:0;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.05;font-weight:700;letter-spacing:-0.02em}
+.hero p{margin:0;color:rgba(255,255,255,0.92);font-weight:400;line-height:1.55}
+
+/* Hero small callouts (CTAs) */
+.hero .hero-cta{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1rem}
+.btn{
+  display:inline-flex;align-items:center;gap:0.6rem;padding:0.6rem 0.9rem;border-radius:8px;border:0;font-weight:600;text-decoration:none;cursor:pointer
+}
+.btn--primary{background:var(--brand-red);color:#fff;box-shadow:0 6px 20px rgba(227,6,19,0.12)}
+.btn--ghost{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.12)}
+
+/* Intro section */
+.intro{
+  padding:2rem 0;
+  background:linear-gradient(180deg, #fff, #fbfcfd);
+}
+.intro h2{font-size:1.35rem;margin:0 0 0.6rem 0;color:var(--brand-navy)}
+.intro p{margin:0 0 1rem 0;color:var(--muted)}
+
+/* Card grid (product / highlights) */
+.card-grid{display:grid;grid-template-columns:1fr;gap:1rem;padding:1rem 0}
+.card{
+  background:#fff;border-radius:12px;padding:0.6rem;border:1px solid #eef2f7;overflow:hidden;
+  box-shadow:0 8px 20px rgba(11,23,50,0.04);display:flex;flex-direction:column;
+}
+.card-media {
+    width: 100%;
+    height: 150px;              /* adjust height as preferred */
+    background-size: contain;   /* prevents stretching */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f3f6fb;  /* optional clean background */
+    border-radius: 8px 8px 0 0;
+}
+
+
+
+/* Responsive grid for larger screens */
+@media(min-width:720px){
+  .card-grid{grid-template-columns:repeat(2,1fr)}
+  .hero{min-height:520px;padding:4rem 0}
+}
+@media(min-width:1100px){
+  .card-grid{grid-template-columns:repeat(3,1fr)}
+  .hero{padding:5rem 0}
+}
+
+/* Global (glocal) callout */
+.glocal{
+  display:flex;flex-direction:column;gap:1rem;background:#fff;padding:1.25rem;border-radius:12px;margin:1rem 0;border:1px solid #eef2f7;
+}
+@media(min-width:900px){
+  .glocal{flex-direction:row;align-items:center;justify-content:space-between;padding:1.6rem}
+}
+
+/* Footer */
+.footer{
+  background:#0b1220;color:#fff;padding:2rem 0;margin-top:2rem;
+}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none}
+.footer .footer-grid{display:grid;grid-template-columns:1fr;gap:1rem;max-width:var(--max-width);margin:0 auto}
+.footer .footer-col h4{margin:0 0 0.6rem 0;color:var(--brand-yellow)}
+.footer small{color:rgba(255,255,255,0.6)}
+.footer-download {
+  text-align: right;   /* aligns the link to the right */
+  margin-top: 1.5rem;
+  padding-right: var(--container-pad);
+}
+
+.footer-download a {
+  color: var(--brand-red);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+}
+
+.footer-download a:hover {
+  text-decoration: underline;
+}
+
+.footer-download {
+  text-align: center;   /* centers the link */
+  margin-top: 1.5rem;
+}
+
+
+.footer-download a {
+  color: var(--brand-red);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+}
+
+.footer-download a:hover {
+  text-decoration: underline;
+}
+.footer-download {
+  text-align: center;   /* centers the link */
+  margin-top: 1.5rem;
+}
+
+
+.footer{
+  background:#0b1220;color:#fff;padding:2rem 0;margin-top:2rem;
+}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none}
+.footer .footer-grid{display:grid;grid-template-columns:1fr;gap:1rem;max-width:var(--max-width);margin:0 auto}
+.footer .footer-col h4{margin:0 0 0.6rem 0;color:var(--brand-yellow)}
+.footer small{color:rgba(255,255,255,0.6)}
+@media(min-width:880px){
+  .footer .footer-grid{grid-template-columns:1fr 1fr 1fr 1fr;gap:1.2rem;padding:0 var(--container-pad)}
+}
+
+/* Utilities */
+.text-muted{color:var(--muted)}
+.kicker{display:inline-block;padding:0.2rem 0.45rem;border-radius:999px;background:rgba(0,27,96,0.06);color:var(--brand-navy);font-weight:600;font-size:0.85rem}
+.center{display:flex;align-items:center;justify-content:center}
+
+/* small helpers for integration */
+.hidden{display:none !important}
+.mt-1{margin-top:0.6rem}
+.mb-1{margin-bottom:0.6rem}
+
+/* Focus and accessibility */
+a:focus, button:focus{outline:3px solid rgba(0,27,96,0.12);outline-offset:2px}
+
+/* ===============================
+   SALES / GENERATOR ORDER FORM
+================================= */
+
+.order-form {
+  max-width: 650px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eef2f7;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-form label {
+  font-weight: 600;
+  color: var(--brand-navy);
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.order-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.order-form button {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+/* === Sales Page Form === */
+.sales-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(11, 23, 50, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sales-form h2 {
+  font-size: 1.6rem;
+  color: var(--brand-navy);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.sales-form label {
+  font-weight: 600;
+  color: var(--brand-navy);
+  margin-bottom: 0.4rem;
+}
+
+.sales-form input,
+.sales-form select,
+.sales-form textarea {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #dbe2ed;
+  font-size: 0.95rem;
+  font-family: var(--ff-sans);
+  transition: all 0.2s ease-in-out;
+}
+
+.sales-form input:focus,
+.sales-form select:focus,
+.sales-form textarea:focus {
+  outline: none;
+  border-color: var(--brand-red);
+  box-shadow: 0 0 6px rgba(227, 6, 19, 0.2);
+}
+
+.sales-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.sales-form button {
+  background: var(--brand-red);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.sales-form button:hover {
+  background: #c20411;
+}
+
+.sales-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Services | Davero Electrical Engineering Limited</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <span class="company-name">Davero Electrical Engineering Limited</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-row">
+    <a href="DAVERO.html" class="logo">
+      <img src="assets/images/Dav new logo.gif" alt="Davero Electrical Engineering Limited Logo">
+      <span class="logo-text">Davero Electrical Engineering Limited</span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+      <span class="hamburger">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <nav id="main-nav" class="nav-main" role="navigation">
+      <ul>
+        <li><a href="generators.html">Rental</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="background-image:url('assets/images/Nsawam.JPEG')">
+  <div class="container hero-inner">
+    <h1>Generator Services</h1>
+    <p>Professional support, maintenance and technical assistance — 24/7.</p>
+  </div>
+</section>
+
+<!-- SERVICES INTRO -->
+<section class="container">
+  <div class="kicker">Our Services</div>
+  <h2>Reliable Power Support, Anytime</h2>
+  <p class="text-muted">
+    At Davero Electrical Engineering Limited, we provide comprehensive generator services
+    to ensure maximum uptime, efficiency, and reliability for your power systems.
+  </p>
+</section>
+
+<!-- SERVICE FEATURES -->
+<section class="container service-grid">
+
+  <div class="service-card">
+    <h3>24/7 Delivery & Deployment</h3>
+    <p>Round-the-clock delivery and rapid deployment of generators for emergencies and scheduled projects.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>Fast Response Time</h3>
+    <p>Quick dispatch of technicians and equipment to minimize downtime.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>On-Site Technical Support</h3>
+    <p>Experienced engineers available to troubleshoot, repair, and optimize your generator systems on location.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>Remote Technical Support</h3>
+    <p>Virtual diagnostics and real-time guidance for faster issue resolution without delay.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>Preventive Maintenance</h3>
+    <p>Scheduled servicing programs to improve lifespan, efficiency, and reduce unexpected failures.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>Emergency Repairs</h3>
+    <p>24-hour emergency breakdown response to restore power as quickly as possible.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>Installation & Commissioning</h3>
+    <p>Professional generator installation, testing, and commissioning for safe operation.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>Load Testing & System Optimization</h3>
+    <p>Performance testing to ensure your generators handle real-world operational loads.</p>
+  </div>
+
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="container cta-section">
+  <h2>Need Immediate Technical Support?</h2>
+  <p>Our team is available 24/7 for urgent service requests and technical assistance.</p>
+  <a href="mailto:info@daveroengineering.com" class="btn btn--primary">
+    Request Service
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid container">
+
+    <div class="footer-col">
+      <h4>Davero Electrical</h4>
+      <p>Reliable power when you need it most.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="generators.html">Rental</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>
+        <a href="tel:+233243549852">+233 24 354 9852</a> |
+        <a href="tel:+233243829739">+233 24 382 9739</a>
+      </p>
+      <p>
+        <a href="mailto:info@daveroengineering.com">
+          info@daveroengineering.com
+        </a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li>
+          <div class="footer-download">
+            <a href="assets/docs/Davero-Company-Profile.pdf" download>
+              Download Company Profile
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Locate Us</h4>
+      <p>
+        <strong>Greater Accra Region</strong><br>
+        Opposite Police Quarters,<br>
+        Off the Kaneshie–Winneba Road
+      </p>
+      <p>
+        <strong>Eastern Region</strong><br>
+        Nsawam, Kwafokurom<br>
+        Off the Accra–Kumasi Highway
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <p>
+        <a href="#">Facebook</a><br>
+        <a href="#">LinkedIn</a>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="container mt-1">
+    <small>&copy; 2025 Davero Electrical Engineering Limited. All rights reserved.</small>
+  </div>
+</footer>
+/* ===============================
+   KVA CALCULATOR CARD
+================================= */
+
+.kva-card label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--brand-navy);
+}
+
+.kva-input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #dbe2ed;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.kva-result {
+  margin-top: 0.6rem;
+  font-weight: 700;
+  color: var(--brand-red);
+}
+
+</body>
+</html>

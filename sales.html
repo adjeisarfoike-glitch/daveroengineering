@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Sales | Davero Electrical Engineering Limited</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Assets/css/style.css">
+</head>
+
+<body>
+ <!-- HEADER -->
+  <!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <span class="company-name">Davero Electrical Engineering Limited</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-row">
+    <a href="DAVERO.html" class="logo">
+  <img src="Assets/Images/Dav new logo.gif" alt="Davero Electrical Engineering Limited Logo">
+  <span class="logo-text">Davero Electrical Engineering Limited</span>
+ </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+      <span class="hamburger">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <nav id="main-nav" class="nav-main" role="navigation">
+      <ul>
+        <li><a href="rentals.html">Rental</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="Service.html">Service</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" style="background-image:url('Assets/Images/Nsawam.JPEG')">
+  <div class="container hero-inner">
+    <h1>Generator Sales</h1>
+    <p>We ship generators based on confirmed orders.</p>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="container">
+  <div class="kicker">Important</div>
+  <h2>We Ship on Order</h2>
+  <p class="text-muted">
+    Davero does not keep generators in stock for direct sale. 
+    All generators are supplied on order and delivered to your location.
+  </p>
+</section>
+
+<!-- ORDER FORM -->
+<section class="container">
+  <h2>Generator Order Request</h2>
+  <p>Please fill the form below to request a generator order.</p>
+
+  <form 
+    action="mailto:daveroelectricalengineering@gmail.com?subject=GENERATOR%20ORDER%20REQUEST" 
+    method="post" 
+    enctype="text/plain" 
+    class="order-form"
+  >
+
+    <label>Full Name</label>
+    <input type="text" name="Name" required>
+
+    <label>Company / Organization</label>
+    <input type="text" name="Company">
+
+    <label>Email Address</label>
+    <input type="email" name="Email" required>
+
+    <label>Phone Number</label>
+    <input type="tel" name="Phone" required>
+
+    <label>Usage Type</label>
+    <select name="Usage Type" required>
+      <option value="">Select one</option>
+      <option>Private / Residential</option>
+      <option>Commercial</option>
+      <option>Industrial</option>
+    </select>
+
+    <label>Number of Equipment to Power</label>
+    <input type="number" name="Number of Equipment" min="1" required>
+
+    <label>Estimated Power Capacity Needed (kVA)</label>
+    <input type="text" name="Required Capacity">
+
+    <label>Location / Delivery Address</label>
+    <input type="text" name="Location" required>
+
+    <label>Additional Requirements</label>
+    <textarea name="Additional Notes" rows="4"></textarea>
+
+    <button type="submit" class="btn btn--primary">
+      Submit Order Request
+    </button>
+
+  </form>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid container">
+
+    <!-- About -->
+    <div class="footer-col">
+      <h4>Davero Electrical Engineering</h4>
+      <p>Our Enery, Your Power.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="rentals.html">Rental</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="Service.html">Service</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>
+        <a href="tel:+233243549852">+233 24 354 9852</a> |
+        <a href="tel:+233243829739">+233 24 382 9739</a>
+      </p>
+      <p>
+        <a href="mailto:daveroelectricalengineering@gmail.com">
+          daveroelectricalengineering@gmail.com
+        </a>
+      </p>
+    </div>
+
+    <!-- Company -->
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li>
+          <div class="footer-download">
+            <a href="Assets/Docs/Davero-Company-Profile.pdf" download>
+              Download Company Profile
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Location -->
+    <div class="footer-col">
+      <h4>Locate Us</h4>
+      <p>
+        <strong>Greater Accra Region</strong><br>
+        Opposite Police Quarters,<br>
+        Off the Kaneshie–Winneba Road
+      </p>
+      <p>
+        <strong>Eastern Region</strong><br>
+        Nsawam, Kwafokurom<br>
+        Off the Accra–Kumasi Highway
+      </p>
+    </div>
+
+    <!-- Socials -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <p>
+        <a href="#">Facebook</a><br>
+        <a href="#">LinkedIn</a>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="container mt-1">
+    <small>
+      &copy; 2025 Davero Electrical Engineering Limited. All rights reserved.
+    </small>
+  </div>
+</footer>
+
+</body>
+</html>
